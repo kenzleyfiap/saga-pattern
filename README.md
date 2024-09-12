@@ -1,5 +1,7 @@
 # Projeto: Arquitetura de Microsserviços: Padrão Saga Orquestrado - FIAP FASE 05
 
+https://youtu.be/yv-C-m31od8
+[ASSISTA À APRESENTAÇÃO DA SAGA: ](https://youtu.be/yv-C-m31od8)
 ### Sumário
 
 * [Justificativa](#justificativa)
