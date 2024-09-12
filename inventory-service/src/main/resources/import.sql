@@ -1,0 +1,15 @@
+INSERT INTO public.inventory (id, product_code, available) VALUES (1, 'X-BACON', 50);
+INSERT INTO public.inventory (id, product_code, available) VALUES (2, 'X-SALAD', 50);
+INSERT INTO public.inventory (id, product_code, available) VALUES (3, 'CHEESEBURGER', 50);
+INSERT INTO public.inventory (id, product_code, available) VALUES (4, 'X-EGG', 50);
+INSERT INTO public.inventory (id, product_code, available) VALUES (5, 'X-CHICKEN', 50);
+INSERT INTO public.inventory (id, product_code, available) VALUES (6, 'X-EVERYTHING', 50);
+INSERT INTO public.inventory (id, product_code, available) VALUES (7, 'X-EVERYTHING CHICKEN', 50);
+INSERT INTO public.inventory (id, product_code, available) VALUES (8, 'COKE 600m', 50);
+INSERT INTO public.inventory (id, product_code, available) VALUES (9, 'COKE', 50);
+INSERT INTO public.inventory (id, product_code, available) VALUES (10, 'FANTA ORANGE', 50);
+INSERT INTO public.inventory (id, product_code, available) VALUES (11, 'GUARANA', 50);
+INSERT INTO public.inventory (id, product_code, available) VALUES (12, 'GUARANA 600ml', 50);
+INSERT INTO public.inventory (id, product_code, available) VALUES (13, 'ICE-CREAM', 50);
+INSERT INTO public.inventory (id, product_code, available) VALUES (14, 'PASSION FRUIT MOUSSE', 50);
+INSERT INTO public.inventory (id, product_code, available) VALUES (15, 'STRAWBERRY PIE', 50);

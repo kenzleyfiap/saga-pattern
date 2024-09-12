@@ -1,0 +1,58 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: inventory-service-dp
+  namespace: orchestrator-saga-ns
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: inventory-service
+  template:
+    metadata:
+      labels:
+        app: inventory-service
+    spec:
+      containers:
+      - name: inventory-service
+        image: luankenzley/inventory-service
+        ports:
+        - containerPort: 8092
+        env:
+        - name: KAFKA_BROKER
+          valueFrom:
+            configMapKeyRef:
+              name: inventory-service-cm
+              key: KAFKA_BROKER
+        - name: DB_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: inventory-service-cm
+              key: DB_HOST
+        - name: DB_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: inventory-service-cm
+              key: DB_NAME
+        - name: DB_PORT
+          valueFrom:
+            configMapKeyRef:
+              name: inventory-service-cm
+              key: DB_PORT
+        - name: DB_USER
+          valueFrom:
+            configMapKeyRef:
+              name: inventory-service-cm
+              key: DB_USER
+        - name: DB_PASSWORD
+          valueFrom:
+            configMapKeyRef:
+              name: inventory-service-cm
+              key: DB_PASSWORD
+        resources:
+          requests:
+            memory: "256Mi"  # Valor recomendado para início
+            cpu: "500m"
+          limits:
+            memory: "512Mi"  # Valor aumentado para evitar OOMKilled
+            cpu: "1000m"

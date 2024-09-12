@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kitchen-db-dp
+  namespace: orchestrator-saga-ns
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kitchen-db
+  template:
+    metadata:
+      labels:
+        app: kitchen-db
+    spec:
+      containers:
+      - name: kitchen-db
+        image: postgres:latest
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 5432
+        env:
+        - name: POSTGRES_DB
+          value: "kitchen-db"
+        - name: POSTGRES_USER
+          value: "postgres"
+        - name: POSTGRES_PASSWORD
+          value: "postgres"

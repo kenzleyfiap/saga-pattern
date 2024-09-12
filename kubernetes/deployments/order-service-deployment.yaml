@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: order-service-dp
+  namespace: orchestrator-saga-ns
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: order-service
+  template:
+    metadata:
+      labels:
+        app: order-service
+    spec:
+      containers:
+      - name: order-service
+        image: luankenzley/order-service
+        ports:
+        - containerPort: 3000
+        env:
+        - name: KAFKA_BROKER
+          valueFrom:
+            configMapKeyRef:
+              name: order-service-cm
+              key: KAFKA_BROKER
+        - name: MONGO_DB_URI
+          valueFrom:
+            configMapKeyRef:
+              name: order-service-cm
+              key: MONGO_DB_URI
+        resources:
+          requests:
+            memory: "256Mi"  # Valor recomendado para início
+            cpu: "500m"
+          limits:
+            memory: "512Mi"  # Valor aumentado para evitar OOMKilled
+            cpu: "1000m"

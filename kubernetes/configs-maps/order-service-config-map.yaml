@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: order-service-cm
+  namespace: orchestrator-saga-ns
+data:
+  KAFKA_BROKER: "kafka-svc.orchestrator-saga-ns.svc.cluster.local:9092"
+  MONGO_DB_URI: "mongodb://admin:123456@order-db-svc.orchestrator-saga-ns.svc.cluster.local:27017"

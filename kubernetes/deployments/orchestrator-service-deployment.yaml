@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: orchestrator-service-dp
+  namespace: orchestrator-saga-ns
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: orchestrator-service
+  template:
+    metadata:
+      labels:
+        app: orchestrator-service
+    spec:
+      containers:
+      - name: orchestrator-service
+        image: luankenzley/orchestrator-service
+        ports:
+        - containerPort: 8080
+        env:
+        - name: KAFKA_BROKER
+          valueFrom:
+            configMapKeyRef:
+              name: orchestrator-service-cm
+              key: KAFKA_BROKER
+        resources:
+          requests:
+            memory: "256Mi"  # Valor recomendado para início
+            cpu: "500m"
+          limits:
+            memory: "512Mi"  # Valor aumentado para evitar OOMKilled
+            cpu: "1000m"

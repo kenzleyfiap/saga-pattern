@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: inventory-db-cm
+  namespace: orchestrator-saga-ns
+data:
+  POSTGRES_DB: "inventory-db"
+  POSTGRES_USER: "postgres"
+  POSTGRES_PASSWORD: "postgres"

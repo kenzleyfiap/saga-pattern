@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: orchestrator-service-cm
+  namespace: orchestrator-saga-ns
+data:
+  KAFKA_BROKER: "kafka-svc.orchestrator-saga-ns.svc.cluster.local:9092"
